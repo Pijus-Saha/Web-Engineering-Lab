@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 {
+                color: brown;
+                font-size: 24px;
+            }
+            .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            }
+            .card {
+                background-color: lightblue;
+                font-size: 16px;
+                justify-content: center;
+                height: 40%;
+                width: 40%;
+            }
+            .card img {
+                width: 350px;
+                height: 350px;
+                border-radius: 50%;
+            }
+        </style>
+        <title>Lab Task 02</title>
+    </head>
+    <body>
+        <header>
+            <h1><I>Coffee Shop</I></h1><hr>
+        </header>
+        <div class = "container">
+            <section class="card">
+                <ol type="I">
+                    <li>Coffee</li>
+                    <ul style="list-style-type:disc;">
+                        <li><I>Cappuccinos</I></li>
+                        <ul style="list-style-type:circle;">
+                            <li>With Foam?</li>
+                            <li>More Sugar?</li>
+                        </ul>
+                        <li><I>Espresso</I></li>
+                        <ol type="I" start = "4">
+                            <li>Robusta</li>
+                            <li>Arabica</li>
+                            <li>Bourbon</li>
+                        </ol>
+                        <li><I>Americanos</I></li>
+                    </ul>
+                    <li>Cakes</li>
+                    <ul style="list-style-type:disc;">
+                        <I>
+                            <li>Chocolate</li>
+                            <li>Vanilla</li>
+                            <li>Red Velvet</li>
+                        </I>
+                    </ul>
+                    <li>Fruit Salad</li>
+                    <ul style="list-style-type:disc;">
+                        <I>
+                            <li>Apple</li>
+                            <li>Water Mellon</li>
+                            <li>Strawberry</li>
+                        </I>
+                    </ul>
+            </section>
+            <section class="card image">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9TfIFqT5Np6d9CSiJB0QdXnOGE2NPaOXGQ&s" alt="Coffee Shop">
+            </section>   
+        </div>
+    </body>
+</html>
