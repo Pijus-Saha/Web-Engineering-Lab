@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop With Me</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styles to apply the Inter font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A light gray background */
+        }
+        /* Style for the countdown timer */
+        #countdown-timer {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo/Brand Name -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-white text-2xl font-bold">Shop With Me</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Accounts</a>
+                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Items</a>
+                    <a href="#offer" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Offer</a>
+                </div>
+
+                <!-- Search and Cart -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:block">
+                        <form class="flex items-center">
+                            <input type="text" placeholder="Type your text..." class="bg-gray-700 text-white border-transparent focus:ring-2 focus:ring-indigo-500 focus:border-transparent rounded-l-md py-2 px-4 w-48 transition">
+                            <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-r-md transition">Search</button>
+                        </form>
+                    </div>
+                    <div class="relative">
+                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Special Offer Banner -->
+        <section id="offer" class="relative bg-gray-900 text-white text-center py-20 sm:py-32 bg-cover bg-center" style="background-image: url('SO.png');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="relative container mx-auto px-4">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">SPECIAL OFFER!</h1>
+                <p class="text-lg md:text-xl mb-8">Don't miss out on our limited-time deals. Get the best products at unbeatable prices.</p>
+                
+                <!-- Countdown Timer Display -->
+                <div id="countdown-container" class="mb-8">
+                    <div id="countdown-timer" class="inline-block text-white p-4 rounded-lg shadow-xl">
+                        <h3 id="countdown-title" class="text-xl font-semibold mb-2">Sale Ends In:</h3>
+                        <div id="timer" class="text-3xl md:text-4xl font-mono flex justify-center space-x-2 md:space-x-4">
+                            <div><span id="days">00</span><span class="block text-xs">Days</span></div>
+                            <div>:</div>
+                            <div><span id="hours">00</span><span class="block text-xs">Hours</span></div>
+                            <div>:</div>
+                            <div><span id="minutes">00</span><span class="block text-xs">Minutes</span></div>
+                            <div>:</div>
+                            <div><span id="seconds">00</span><span class="block text-xs">Seconds</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#products" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">Order Now</a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-10">Products</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Product Card 1: Mango -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="mango.jpeg" alt="Mango" class="w-full h-48 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="font-semibold text-xl mb-2">Mango</h3>
+                            <p class="text-gray-700 text-lg mb-4">$5.00</p>
+                            <button class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full w-full transition">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2: Banana -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="banana.jpeg" alt="Banana" class="w-full h-48 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="font-semibold text-xl mb-2">Banana</h3>
+                            <p class="text-gray-700 text-lg mb-4">$1.80</p>
+                            <button class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full w-full transition">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3: Orange -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="orange.jpg" alt="Orange" class="w-full h-48 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="font-semibold text-xl mb-2">Orange</h3>
+                            <p class="text-gray-700 text-lg mb-4">$2.20</p>
+                            <button class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full w-full transition">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4: Apple -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                        <img src="apple.jpg" alt="Apple" class="w-full h-48 object-cover">
+                        <div class="p-6 text-center">
+                            <h3 class="font-semibold text-xl mb-2">Apple</h3>
+                            <p class="text-gray-700 text-lg mb-4">$3.00</p>
+                            <button class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-full w-full transition">Add to Cart</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Shop With Me. Thank you for watching.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- SALE COUNTDOWN TIMER SCRIPT ---
+
+            // --- CONFIGURATION ---
+            // Set the start and end date for your sale here.
+            // Format: YYYY-MM-DDTHH:MM:SS
+            const saleStartDate = new Date('2025-07-01T00:00:00');
+            const saleEndDate = new Date('2025-07-05T23:59:59');
+            // --- END CONFIGURATION ---
+
+            const countdownContainer = document.getElementById('countdown-container');
+            const countdownTitle = document.getElementById('countdown-title');
+            const timerEl = document.getElementById('timer');
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            function updateCountdown() {
+                const now = new Date();
+
+                // Check if the sale has ended
+                if (now > saleEndDate) {
+                    countdownTitle.textContent = "The Special Offer Has Ended";
+                    timerEl.innerHTML = '<span class="text-2xl">Thank you for your interest!</span>';
+                    clearInterval(countdownInterval);
+                    return;
+                }
+
+                // Check if the sale hasn't started yet
+                if (now < saleStartDate) {
+                    const timeToStart = saleStartDate - now;
+                    const days = Math.floor(timeToStart / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeToStart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeToStart % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeToStart % (1000 * 60)) / 1000);
+
+                    countdownTitle.textContent = "Sale Starts In:";
+                    daysEl.textContent = String(days).padStart(2, '0');
+                    hoursEl.textContent = String(hours).padStart(2, '0');
+                    minutesEl.textContent = String(minutes).padStart(2, '0');
+                    secondsEl.textContent = String(seconds).padStart(2, '0');
+                    return;
+                }
+
+                // If the sale is active
+                const timeRemaining = saleEndDate - now;
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                countdownTitle.textContent = "Sale Ends In:";
+                daysEl.textContent = String(days).padStart(2, '0');
+                hoursEl.textContent = String(hours).padStart(2, '0');
+                minutesEl.textContent = String(minutes).padStart(2, '0');
+                secondsEl.textContent = String(seconds).padStart(2, '0');
+            }
+
+            // Update the countdown every second
+            const countdownInterval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initial call to display immediately
+
+
+            // --- CART FUNCTIONALITY SCRIPT ---
+
+            const cartCountEl = document.getElementById('cart-count');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+            
+            let cartItemCount = 0;
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    cartItemCount++;
+                    cartCountEl.textContent = cartItemCount;
+
+                    // Optional: Add a little animation to the cart count
+                    cartCountEl.classList.add('transform', 'scale-125');
+                    setTimeout(() => {
+                        cartCountEl.classList.remove('transform', 'scale-125');
+                    }, 200);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

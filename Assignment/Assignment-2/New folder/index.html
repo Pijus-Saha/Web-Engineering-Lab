@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopping</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding-bottom: 60px;
+    }
+
+    .navbar {
+      background-color: black;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .navbar-left {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .navbar-center {
+      display: flex;
+      align-items: center;
+      gap: 150px;
+    }
+
+    .navbar-center a,
+    .dropdown-btn {
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 5px 8px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 35px;
+      left: 0;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0 4px 8px gray;
+      border-radius: 5px;
+      z-index: 1000;
+      color: black;
+      padding: 10px 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropdown-content ul li {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .dropdown-content ul li:hover {
+      background-color: #eee;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .search-container input[type="text"] {
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    .search-container button {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 1.5rem;
+    }
+
+    .navbar-right i {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .navbar-right i sub {
+      color: white;
+      top: -8px;
+      right: -10px;
+      font-size: 12px;
+      background-color: black;
+      border-radius: 50%;
+      padding: 0 5px;
+    }
+
+    .offer-section {
+      position: relative;
+      width: 100%;
+      height: 50vh;
+      overflow: hidden;
+    }
+
+    .offer-img {
+      width: 100vw;
+      height: 100%;
+      object-fit: fill;
+      display: block;
+    }
+
+    .order-btn {
+      position: absolute;
+      top: 90%;
+      right: 40px;
+      transform: translateY(-50%);
+      background-color: greenyellow;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 15px 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .order-btn:hover {
+      background-color: green;
+    }
+
+    .product-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .product-section h2 {
+      margin-bottom: 30px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px cyan;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: orange;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="navbar-left"><h2>Shop With Me</h2></div>
+    <div class="navbar-center">
+      <a href="#">Accounts</a>
+      <div class="dropdown">
+        <div class="dropdown-btn">Itemss</div>
+        <div class="dropdown-content">
+          <ul>
+            <li>Fruit Salad</li>
+            <li>Milk Shake</li>
+            <li>Coffee</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dropdown">
+        <div class="dropdown-btn">Offer</div>
+        <div class="dropdown-content">
+          <ul>
+            <li>Family Pack</li>
+            <li>Ifter!</li>
+            <li>Offer%</li>
+          </ul>
+        </div>
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Type your item" />
+        <button>Search</button>
+      </div>
+    </div>
+    <div class="navbar-right">
+      <i class="fa-solid fa-cart-shopping"><sub>0</sub></i>
+    </div>
+  </div>
+
+  
+  <div class="offer-section">
+    <img src="offer.webp" alt="Special Offer" class="offer-img" />
+    <button class="order-btn">Order Now</button>
+  </div>
+
+  <div class="product-section">
+    <h2>Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="mango.jpeg" alt="Mango">
+        <div class="product-info">
+          <h3>Mango</h3>
+          <p>$5.00</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="banana.jpeg" alt="Banana">
+        <div class="product-info">
+          <h3>Banana</h3>
+          <p>$1.00</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="orange.jpg" alt="Orange">
+        <div class="product-info">
+          <h3>Orange</h3>
+          <p>$7.00</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="apple.jpg" alt="Apple">
+        <div class="product-info">
+          <h3>Apple</h3>
+          <p>$3.00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    Thank you for watching
+  </footer>
+
+</body>
+</html>
