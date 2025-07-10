@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shop With Me</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="title">Shop With Me</div>
+
+    <div class="center-area">
+      <a href="" class="account-link">Account</a>
+
+      <div class="dropdown">
+        <button class="dropbtn">Items</button>
+        <div class="dropdown-content">
+          <a href="#">Fruits</a>
+          <a href="#">Flowers</a>
+          <a href="#">Vegetables</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">Offers</button>
+        <div class="dropdown-content">
+          <a href="#">Today's Deals</a>
+          <a href="#">Weekly Sale</a>
+          <a href="#">Summer Sale</a>
+        </div>
+      </div>
+
+      <div class="search-area">
+        <input type="text" placeholder="Type your item" class="search_bar">
+        <button class="search">Search</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <i class="fas fa-shopping-cart"><sub>0</sub></i>
+    </div>
+  </nav>
+
+  <section class="banner">
+    <button class="order-btn">Order Now</button>
+  </section>
+
+  <section class="product-section">
+    <div class="product-card" data-price="120" data-discount="0.25">
+      <img src="mango.avif" alt="Mango">
+      <h3>Mango</h3>
+      <p>
+        <span class="original-price">BDT-120</span><br>
+        <span class="discount-info"></span><br>
+        <span class="discounted-price"></span>
+      </p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-price="40" data-discount="0">
+      <img src="Banana.jpg" alt="Banana">
+      <h3>Banana</h3>
+      <p>
+        <span class="original-price">BDT-40</span><br>
+        <span class="discount-info"></span><br>
+        <span class="discounted-price"></span>
+      </p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-price="150" data-discount="0.11">
+      <img src="orrange.jpg" alt="Orrange">
+      <h3>Orrange</h3>
+      <p>
+        <span class="original-price">BDT-150</span><br>
+        <span class="discount-info"></span><br>
+        <span class="discounted-price"></span>
+      </p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+    <div class="product-card" data-price="110" data-discount="0.35">
+      <img src="jackfruit.jpg" alt="Jackfruit">
+      <h3>Jackfruit</h3>
+      <p>
+        <span class="original-price">BDT-110</span><br>
+        <span class="discount-info"></span><br>
+        <span class="discounted-price"></span>
+      </p>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>Thank you for watching</p>
+  </footer>
+
+  <script>
+    let cartCount = 0;
+    const cartSub = document.querySelector('.fa-shopping-cart sub');
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      const price = parseFloat(card.dataset.price);
+      const discount = parseFloat(card.dataset.discount);
+      const originalElem = card.querySelector('.original-price');
+      const discountInfo = card.querySelector('.discount-info');
+      const discountedElem = card.querySelector('.discounted-price');
+
+      if (discount > 0) {
+        const discountPercent = Math.round(discount * 100);
+        const discountedPrice = Math.round(price * (1 - discount));
+        discountInfo.textContent = `Discount: ${discountPercent}% OFF`;
+        discountedElem.textContent = `Now: BDT-${discountedPrice}`;
+        originalElem.style.textDecoration = "line-through";
+        originalElem.style.color = "#888";
+        discountedElem.style.color = "#e67e22";
+        discountedElem.style.fontWeight = "bold";
+      }
+
+      const addBtn = card.querySelector('.add-to-cart');
+      addBtn.addEventListener('click', () => {
+        cartCount++;
+        cartSub.textContent = cartCount;
+      });
+    });
+  </script>
+</body>
+
+</html>
