@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Validation Form</title>
+</head>
+<body>
+  <h2>Form Validation using Regex</h2>
+
+  <form onsubmit="validateForm(event)">
+    <label>Name:</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" id="password"><br><br>
+
+    <label>Email:</label><br>
+    <input type="text" id="email"><br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); 
+
+      var name = document.getElementById("name").value;
+      var password = document.getElementById("password").value;
+      var email = document.getElementById("email").value;
+
+      var namePattern = /^[a-z A-Z]{3,20}$/;
+      var passwordPattern = /^[A-Za-z0-9@#$%^&+=]{6,}$/; 
+      var emailPattern = /^[^@]+@[^@]+\.[a-z]{2,}$/;   
+
+      var result = "";
+
+      if (!namePattern.test(name)) {
+        result += "Invalid Name<br>";
+      } else {
+        result += "Name OK<br>";
+      }
+
+      if (!passwordPattern.test(password)) {
+        result += "Invalid Password<br>";
+      } else {
+        result += "Password OK<br>";
+      }
+
+      if (!emailPattern.test(email)) {
+        result += "Invalid Email<br>";
+      } else {
+        result += "Email OK<br>";
+      }
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>

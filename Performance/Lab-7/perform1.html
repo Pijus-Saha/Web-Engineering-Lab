@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form id="myForm">
+    <label>Email:
+      <input type="email" id="email" required />
+      <span class="error" id="emailError"></span>
+    </label>
+
+    <label>Batch & Section:
+      <input type="text" id="batch" required />
+      <span class="error" id="batchError"></span>
+    </label>
+
+    <label>Hobby:
+      <input type="text" id="hobby" required />
+      <span class="error" id="hobbyError"></span>
+    </label>
+
+    <label>Password:
+      <input type="password" id="password" required />
+      <span class="error" id="passwordError"></span>
+    </label>
+
+    <label>Confirm Password:
+      <input type="password" id="confirmPassword" required />
+      <span class="error" id="confirmError"></span>
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="validation.js"></script>
+</body>
+</html>
