@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bookstore Management System</h1>
+            <p>Add and manage your book collection</p>
+        </header>
+
+        <main>
+            <!-- Add Book Form -->
+            <section class="form-section">
+                <h2>Add New Book</h2>
+                <form id="bookForm" class="book-form">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre" name="genre" required>
+                            <option value="">Select a genre</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Biography">Biography</option>
+                            <option value="History">History</option>
+                            <option value="Self-Help">Self-Help</option>
+                            <option value="Business">Business</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Children">Children</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="bestSelling" name="best_selling">
+                            <span class="checkmark"></span>
+                            Best Selling
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Add Book</span>
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                    </button>
+                </form>
+
+                <div id="message" class="message"></div>
+                
+                <!-- Toggle Table Button -->
+                <button type="button" id="toggleTableBtn" class="toggle-table-btn">
+                    <span id="toggleBtnText">Show Book Collection</span>
+                    <span id="toggleBtnIcon">▼</span>
+                </button>
+            </section>
+
+            <!-- Books Table -->
+            <section class="table-section">
+                <h2>Book Collection</h2>
+                <div class="table-container">
+                    <table id="booksTable" class="books-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Genre</th>
+                                <th>Best Seller</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Books will be loaded here -->
+                        </tbody>
+                    </table>
+                    <div id="noBooks" class="no-books">
+                        <p>No books found. Add your first book using the form above!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Update Book Modal -->
+        <div id="updateModal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Update Book</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <form id="updateBookForm" class="book-form">
+                    <input type="hidden" id="updateBookId">
+                    
+                    <div class="form-group">
+                        <label for="updateTitle">Title</label>
+                        <input type="text" id="updateTitle" name="title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="updateAuthor">Author</label>
+                        <input type="text" id="updateAuthor" name="author" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="updateGenre">Genre</label>
+                        <select id="updateGenre" name="genre" required>
+                            <option value="">Select a genre</option>
+                            <option value="Fiction">Fiction</option>
+                            <option value="Non-Fiction">Non-Fiction</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Biography">Biography</option>
+                            <option value="History">History</option>
+                            <option value="Self-Help">Self-Help</option>
+                            <option value="Business">Business</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Children">Children</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="updateBestSelling" name="best_selling">
+                            <span class="checkmark"></span>
+                            Best Selling
+                        </label>
+                    </div>
+
+                    <div class="modal-buttons">
+                        <button type="button" class="btn-cancel" id="cancelUpdate">Cancel</button>
+                        <button type="submit" class="btn-save">
+                            <span>Update Book</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
