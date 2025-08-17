@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  background-color: #f7f3f0;
+}
+
+.form-container {
+  width: 350px;
+  margin: 80px auto;
+  background-color: #fffbe6;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6f4e37;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #5c3b27;
+}
